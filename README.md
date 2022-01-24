@@ -10,6 +10,6 @@ password : "SmartServTest@123" takes to the dashboard page, any other password w
 
 
 dashboard page notes :
-since,data set is not given I took a dataset of "Price of Netflix in Different countries"(data is also added in the repository, random six con).
+since,data set is not given I took a dataset of "Price of Netflix in Different countries"(data is also added in the repository).
 
 width of the dashboard is always 100% of the screen, though added css with highest specificity(Select by id), width is not changing.
