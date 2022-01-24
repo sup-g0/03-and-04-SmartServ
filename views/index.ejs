@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>SmartServ</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body>
+    <div class="login">
+      <div class="img-con">
+        <img src="images/logo.jpg" alt="logo" class="logo" width="300px" />
+      </div>
+      <form action="/" method="post">
+        <div class="details">
+          <input type="text" placeholder="Username" name="usernamre" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+          <button type="submit">Login</button>
+          <a href="#" class="forgot-password">Forgot your password?</a>
+        </div>
+      </form>
+      <div id="message">
+        <h2>Password must contain the following:</h2>
+
+        <p id="capital" class="invalid">A <b>capital </b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="special" class="invalid">A <b>Special Character</b></p>
+      </div>
+    </div>
+
+    <script>
+      let password = document.getElementById("password");
+
+      let capital = document.getElementById("capital");
+      let number = document.getElementById("number");
+      let special = document.getElementById("special");
+
+      password.onfocus = function () {
+        document.getElementById("message").style.display = "block";
+      };
+
+      password.onblur = function () {
+        document.getElementById("message").style.display = "none";
+      };
+
+      password.onkeyup = function () {
+        let upperCaseLetters = /[A-Z]/g;
+        if (password.value.match(upperCaseLetters)) {
+          capital.classList.remove("invalid");
+          capital.classList.add("valid");
+        } else {
+          capital.classList.remove("valid");
+          capital.classList.add("invalid");
+        }
+
+        let numbers = /[0-9]/g;
+        if (password.value.match(numbers)) {
+          number.classList.remove("invalid");
+          number.classList.add("valid");
+        } else {
+          number.classList.remove("valid");
+          number.classList.add("invalid");
+        }
+
+        let specialCharacter = /[@]/g;
+        if (password.value.match(specialCharacter)) {
+          special.classList.remove("invalid");
+          special.classList.add("valid");
+        } else {
+          special.classList.remove("valid");
+          special.classList.add("invalid");
+        }
+      };
+    </script>
+  </body>
+</html>
